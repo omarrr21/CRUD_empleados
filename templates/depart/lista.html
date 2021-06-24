@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+lista departamentos
+{% endblock %}
+
+{% block body %}
+{% include 'includes/head.html' %}
+    <div class="class-container">
+    <div class="grid-x">
+        <h1 class="cell">
+            Lista departamentos
+        </h1>
+        <div class="cell">
+            <table>
+                <tbody>
+                {% for e in depa %}
+                    <tr>
+                        <td>{{ e.name }}</td>
+                        <td>{{ e.shor_name }}</td>
+                        <td>
+                            <a href="{% url 'persona_app:emparea' e.shor_name %}" class="button warning">
+                            ver empleados</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

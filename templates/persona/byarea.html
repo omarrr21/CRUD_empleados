@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block titulo %}
+lista emp departamentos
+{% endblock %}
+{% block body %}
+    {% include 'includes/head.html' %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="cell">
+                Empleados por area
+            </div>
+            <div class="cell">
+                <table>
+                    <thead>
+                    <tr>
+                        <th width="150">ID</th>
+                        <th width="200">NOMBRES</th>
+                        <th>APELLIDOS</th>
+                        <th width="150">DEPARTAMENTO</th>
+                        <th width="150">ACCION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for foo in emple %}
+                        <tr>
+                            <td>{{ foo.id}}</td>
+                            <td>{{ foo.first_name}}</td>
+                            <td>{{ foo.last_name}}</td>
+                            <td>{{ foo.depa}}</td>
+                            <td>
+                                <a class="button warning" href="{% url 'persona_app:detalle' foo.id %}">Ver
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+

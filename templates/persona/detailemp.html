@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    detalles empleado
+{% endblock %}
+{% block body %}
+    {% include 'includes/head.html' %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <h2 class="cell">todos los datos</h2>
+            <div class="medium-6 cell">
+                <p>{{ object.id }}</p>
+            </div>
+
+            <div class="medium-6 cell">
+                <p>{{ object.first_name }}</p>
+            </div>
+
+            <div class="medium-6 cell">
+                <p>{{ object.last_name }}</p>
+            </div>
+            <div class="medium-6 cell">
+                <p>{{ object.depa.shor_name }}</p>
+            </div>
+            <div class="medium-6 cell">
+                <p>{{ object.get_job_display }}</p>
+            </div>
+            <div class="medium-6 cell">
+                <span class="label">habilidades</span>
+                <ul class="vertical menu">
+                    {% for h in object.habilidades.all %}
+                        <li>{{ h.habilidades }}</li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
